@@ -10,6 +10,8 @@ import sda.hibernate.many2many.Trainer;
 import sda.hibernate.one2many.Post;
 import sda.hibernate.one2many.PostComment;
 import sda.hibernate.gettingStarted.UserEntity;
+import sda.hibernate.one2one.Capital;
+import sda.hibernate.one2one.Country;
 
 public class HibernateUtils {
 
@@ -31,7 +33,9 @@ public class HibernateUtils {
                     .addAnnotatedClass(Post.class)
                     .addAnnotatedClass(Classroom.class)
                     .addAnnotatedClass(Trainer.class)
-                    .addAnnotatedClass(PostComment.class);
+                    .addAnnotatedClass(PostComment.class)
+                    .addAnnotatedClass(Country.class)
+                    .addAnnotatedClass(Capital.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);

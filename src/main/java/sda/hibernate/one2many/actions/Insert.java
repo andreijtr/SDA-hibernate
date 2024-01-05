@@ -8,7 +8,7 @@ import sda.hibernate.utils.HibernateUtils;
 
 import java.util.Arrays;
 
-public class InsertMain {
+public class Insert {
 
     /**
      * Get SessionFactory instance from HibernateUtils class and open a Session and a Transaction

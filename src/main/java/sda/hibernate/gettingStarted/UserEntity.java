@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 /**
  * [PREZENTARE]
  * - GENERATION TYPES
+ * - toate adnotarile
  */
 
 /**
