@@ -16,6 +16,19 @@ public class PostComment {
     @Column(name = "comment")
     private String comment;
 
+
+    // second:  bidirectional
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Post post;
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
     public PostComment() {
     }
 
@@ -47,3 +60,9 @@ public class PostComment {
                 '}';
     }
 }
+
+/**
+ * Bidirectional (secondly):
+ *  - create an instance variable Post (add getter and setter)
+ *  - annotate it with @ManyToOne(fetch = FetchType.LAZY)
+ */

@@ -3,12 +3,6 @@ package sda.hibernate.gettingStarted;
 import jakarta.persistence.*;
 
 /**
- * [PREZENTARE]
- * - GENERATION TYPES
- * - toate adnotarile
- */
-
-/**
  * Declare instance variables for corresponding column in table 'users'.
  * Start mapping this class to table 'users':
  *  - in HibernateUtils.getSessionFactory put 'addAnnotatedClass(UserEntity.class)' on Configuration instance

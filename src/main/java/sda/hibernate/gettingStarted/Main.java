@@ -8,18 +8,6 @@ import sda.hibernate.utils.HibernateUtils;
 public class Main {
 
     /**
-     * prezentare:
-     *  - cum arata un config de Hibernate, discuta setarile facute
-     *  - ce este sessionFactory, session, transaction
-     *  - care sunt state-urile unei entitati in Hibernate
-     *  - ce este o entitate, adnotarile care se fac pe o entitate (@Entity, @Table, @Id, @GeneratedType, @Column)
-     *  - obtine o sesiune, citeste un user, afiseaza-l si fa update pe el si insereaza un user
-     *
-     * [QUESTION] - acid
-     *
-     */
-
-    /**
      * Get SessionFactory instance from HibernateUtils class and open a Session and a Transaction
      *
      * [READ]

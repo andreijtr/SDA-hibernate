@@ -6,11 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * - [PREZENTARE] prima data fa unidirectional, prezinta le adnotarile si ce inseamna EAGER vs LAZY
- * - doar aici exista o referinta catre Copii
- */
-
-/**
  * Map Post class to 'posts' table as you did for UserEntity
  * For mapping one-to-many relationship:
  *  - declare a variable that holds a list of PostComments and initialize it with an empty list
@@ -30,9 +25,25 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "post_id")
+    // first: unidirectional
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "post_id")
+//    private List<PostComment> comments = new ArrayList<>();
+
+
+    // second: bidirectional
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<PostComment> comments = new ArrayList<>();
+
+    public void addComment(PostComment postComment) {
+        comments.add(postComment);
+        postComment.setPost(this);
+    }
+
+    public void removeComment(PostComment postComment) {
+        comments.remove(postComment);
+        postComment.setPost(null);
+    }
 
     public int getId() {
         return id;
@@ -66,4 +77,13 @@ public class Post {
                 ", comments=" + comments +
                 '}';
     }
+
+    /**
+     * Bidirectional (secondly):
+     *  - declare a variable that holds a list of PostComments and initialize it with an empty list
+     *  - annotate it with @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+     *  - add 2 utility methods that keeps both sides of the association in sink:
+     *      - addComment - add to collection and set 'this' as parent
+     *      - removeComment - remove from collection and set 'null' as parent
+     */
 }
