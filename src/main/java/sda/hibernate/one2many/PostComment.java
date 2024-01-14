@@ -6,6 +6,12 @@ import jakarta.persistence.*;
  * Map PostComment class to 'post_comments' table as you did for UserEntity
  */
 
+/**
+ * Bidirectional (secondly):
+ *  - create an instance variable Post (add getter and setter)
+ *  - annotate it with @ManyToOne(fetch = FetchType.LAZY)
+ */
+
 @Entity
 @Table(name = "post_comments")
 public class PostComment {
@@ -60,9 +66,3 @@ public class PostComment {
                 '}';
     }
 }
-
-/**
- * Bidirectional (secondly):
- *  - create an instance variable Post (add getter and setter)
- *  - annotate it with @ManyToOne(fetch = FetchType.LAZY)
- */

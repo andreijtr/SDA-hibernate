@@ -5,9 +5,6 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// [prezentare]
-// scopul lui mappedBy
-
 /**
  * Map Trainer class to 'trainers' table as you did for UserEntity
  * For mapping many-to-many relationship:
