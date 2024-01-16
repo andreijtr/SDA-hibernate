@@ -1,16 +1,5 @@
 package sda.hibernate.many2many.actions;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import sda.hibernate.many2many.Classroom;
-import sda.hibernate.many2many.Trainer;
-import sda.hibernate.one2many.Post;
-import sda.hibernate.one2many.PostComment;
-import sda.hibernate.utils.HibernateUtils;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class InsertMain {
 
     /**
@@ -25,17 +14,7 @@ public class InsertMain {
      */
 
     public static void main(String[] args) {
-        Session hibernateSession = HibernateUtils.getSessionFactory().openSession();
-        Transaction transaction = hibernateSession.beginTransaction();
 
-        Trainer ioana = hibernateSession.get(Trainer.class, 4);
-
-        Classroom java66 = new Classroom("java66", 20);
-        java66.getTrainers().addAll(List.of(ioana));
-
-        hibernateSession.persist(java66);
-        transaction.commit();
-        hibernateSession.close();
     }
 
 }

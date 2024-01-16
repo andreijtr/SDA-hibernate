@@ -1,12 +1,5 @@
 package sda.hibernate.one2one.actions;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-import sda.hibernate.many2many.Classroom;
-import sda.hibernate.one2one.Country;
-import sda.hibernate.utils.HibernateUtils;
-
-import java.util.List;
 
 public class ReadMain {
 
@@ -23,13 +16,7 @@ public class ReadMain {
      */
 
     public static void main(String[] args) {
-        Session hibernateSession = HibernateUtils.getSessionFactory().openSession();
 
-        Query<Country> query = hibernateSession.createQuery("select c from Country c", Country.class);
-        List<Country> countries = query.getResultList();
-        countries.forEach(System.out::println);
-
-        hibernateSession.close();
     }
 
 }

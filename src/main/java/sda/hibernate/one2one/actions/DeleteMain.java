@@ -1,13 +1,5 @@
 package sda.hibernate.one2one.actions;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import sda.hibernate.one2one.Country;
-import sda.hibernate.utils.HibernateUtils;
-
-import java.util.List;
-
 public class DeleteMain {
 
     /**
@@ -22,14 +14,7 @@ public class DeleteMain {
      */
 
     public static void main(String[] args) {
-        Session hibernateSession = HibernateUtils.getSessionFactory().openSession();
-        Transaction transaction = hibernateSession.beginTransaction();
 
-        Country country = hibernateSession.get(Country.class, 7);
-        hibernateSession.remove(country);
-
-        transaction.commit();
-        hibernateSession.close();
     }
 
 }

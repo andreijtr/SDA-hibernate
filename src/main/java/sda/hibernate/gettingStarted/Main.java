@@ -1,10 +1,5 @@
 package sda.hibernate.gettingStarted;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import sda.hibernate.utils.DateUtils;
-import sda.hibernate.utils.HibernateUtils;
-
 public class Main {
 
     /**
@@ -26,26 +21,6 @@ public class Main {
      */
 
     public static void main( String[] args ) {
-        Session session = HibernateUtils.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
 
-        // read
-        UserEntity user = session.find(UserEntity.class, 1);
-        System.out.println(user);
-
-        // update
-        user.setAge(56);
-
-        // insert
-        UserEntity newUser = new UserEntity();
-        newUser.setName("Iulian");
-        newUser.setAge(78);
-        newUser.setCreateAt(DateUtils.now());
-        session.persist(newUser);
-        System.out.println(newUser);
-
-        // commit
-        transaction.commit();
-        session.close();
     }
 }

@@ -1,9 +1,5 @@
 package sda.hibernate.one2many.actions;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import sda.hibernate.one2many.Post;
-import sda.hibernate.utils.HibernateUtils;
 
 public class Update {
 
@@ -19,14 +15,7 @@ public class Update {
      */
 
     public static void main(String[] args) {
-        Session hibernateSession = HibernateUtils.getSessionFactory().openSession();
-        Transaction transaction = hibernateSession.beginTransaction();
 
-        Post myPost = hibernateSession.find(Post.class, 2);
-        myPost.setContent("Hello from Barcelona!");
-
-        transaction.commit();
-        hibernateSession.close();
     }
 
 }

@@ -1,9 +1,5 @@
 package sda.hibernate.one2many.bidirectionalActions;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import sda.hibernate.one2many.Post;
-import sda.hibernate.utils.HibernateUtils;
 
 public class Delete {
 
@@ -14,13 +10,6 @@ public class Delete {
      */
 
     public static void main(String[] args) {
-        Session hibernateSession = HibernateUtils.getSessionFactory().openSession();
-        Transaction transaction = hibernateSession.beginTransaction();
 
-        Post myPost = hibernateSession.find(Post.class, 11);
-        myPost.removeComment(myPost.getComments().get(0));
-
-        transaction.commit();
-        hibernateSession.close();
     }
 }

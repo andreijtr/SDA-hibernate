@@ -5,13 +5,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-import sda.hibernate.many2many.Classroom;
-import sda.hibernate.many2many.Trainer;
-import sda.hibernate.one2many.Post;
-import sda.hibernate.one2many.PostComment;
-import sda.hibernate.gettingStarted.UserEntity;
-import sda.hibernate.one2one.Capital;
-import sda.hibernate.one2one.Country;
 
 public class HibernateUtils {
 
@@ -28,14 +21,7 @@ public class HibernateUtils {
                     .setProperty(Environment.HBM2DDL_AUTO, "none")
                     .setProperty(Environment.SHOW_SQL, "true")
                     .setProperty(Environment.FORMAT_SQL, "true")
-                    .setProperty(Environment.HIGHLIGHT_SQL, "true")
-                    .addAnnotatedClass(UserEntity.class)
-                    .addAnnotatedClass(Post.class)
-                    .addAnnotatedClass(Classroom.class)
-                    .addAnnotatedClass(Trainer.class)
-                    .addAnnotatedClass(PostComment.class)
-                    .addAnnotatedClass(Country.class)
-                    .addAnnotatedClass(Capital.class);
+                    .setProperty(Environment.HIGHLIGHT_SQL, "true");
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
@@ -55,7 +41,7 @@ public class HibernateUtils {
  * "hibernate.hbm2ddl.auto" will tell Hibernate if and how it should create database tables based on entities from application
  * In our case is set to "none" so Hibernate will not create or alter tables based on Entities.
  * Another options could be (update, create - drop, drop etc)
- * (in real projects, the "none" option is used often or "update")
+ * (in real projects, the "none" option is often used or "update")
  *
  * SHOW_SQL, FORMAT_SQL, HIGHLIGHT_SQL - are used to nicely show SQL queries that Hibernate executes
  * so we can see in console what happens when using Hibernate (less magic, more understanding)

@@ -1,3 +1,5 @@
+-- add maven dependencies for working with database and Hibernate
+
 create schema `sda-hibernate-##`;   -- replace ## with your group number
 
 -- getting started

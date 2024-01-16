@@ -1,10 +1,5 @@
 package sda.hibernate.many2many;
 
-import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Map Trainer class to 'trainers' table as you did for UserEntity
  * For mapping many-to-many relationship:
@@ -12,49 +7,6 @@ import java.util.List;
  *  - annotate it with @ManyToMany(mappedBy = "trainers")
  */
 
-@Entity
-@Table(name = "trainers")
 public class Trainer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    public Trainer(String name) {
-        this.name = name;
-    }
-
-    public Trainer() {}
-
-    @ManyToMany(mappedBy = "trainers")
-    private List<Classroom> classrooms = new ArrayList<>();
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Classroom> getClassrooms() {return classrooms;}
-
-    @Override
-    public String toString() {
-        return "Trainer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }
